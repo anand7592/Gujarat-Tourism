@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./components/Admin/Dashboard/Dashboard";
 import Users from "./components/Admin/Users/Users";
 import Rating from "./components/Admin/Rating/Rating";
@@ -13,6 +13,7 @@ function App() {
     <>
       <div className="bg-gray-400">
         <Routes>
+          <Route path="/" element={<Navigate to="/admin" replace />} />
           <Route path="/admin" element={<Dashboard />} />
           <Route path="/admin/user" element={<Users />} />
           <Route path="/admin/place" element={<Place />} />
