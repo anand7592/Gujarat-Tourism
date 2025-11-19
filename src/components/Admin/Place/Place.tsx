@@ -49,13 +49,14 @@ function Place() {
   const [places, setPlaces] = useState(initialPlaces);
 
   const handleDelete = (id: number) => {
-    console.log("Delete place ID:", id);
-    // Add delete logic here
+    // remove the place from state
+    setPlaces((prev) => prev.filter((p) => p.id !== id));
+    console.log("Deleted place ID:", id);
   };
 
   const handleEdit = (id: number) => {
     console.log("Edit place ID:", id);
-    // Add edit logic here
+    // Add edit logic here (e.g. open modal or navigate to edit page)
   };
 
   return (

@@ -119,7 +119,9 @@ function Subplace() {
   const [subPlaces, setSubPlaces] = useState(initialSubPlaces);
 
   const handleDelete = (id: number) => {
-    console.log(`Delete subplace ID: ${id}`);
+    // remove the subplace from state so the setter is used
+    setSubPlaces((prev) => prev.filter((p) => p.id !== id));
+    console.log(`Deleted subplace ID: ${id}`);
   };
 
   const handleEdit = (id: number) => {

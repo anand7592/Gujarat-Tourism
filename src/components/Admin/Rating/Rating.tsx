@@ -62,11 +62,12 @@ function Rating() {
   const handleDelete = (id: number) => {
     console.log(`Delete rating ID: ${id}`);
     // API call to delete rating would go here
-    // setRatings(ratings.filter(r => r.id !== id));
+    // Optimistically remove rating from local state
+    setRatings((prev) => prev.filter((r) => r.id !== id));
   };
 
   // Helper function to render stars
-  const renderStars = (count) => {
+  const renderStars = (count:number) => {
     return (
       <div className="flex space-x-1">
         {[...Array(5)].map((_, i) => (
