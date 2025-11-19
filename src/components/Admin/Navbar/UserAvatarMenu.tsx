@@ -24,7 +24,11 @@ function UserAvatarMenu() {
   const navigate = useNavigate(); 
 
   // Function to handle navigation
-  const handleNavigation = (path) => {
+  interface NavigationHandler {
+    (path: string): void;
+  }
+
+  const handleNavigation: NavigationHandler = (path: string): void => {
     navigate(path);
   };
 
